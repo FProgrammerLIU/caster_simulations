@@ -10,11 +10,6 @@
     <turnGravityOff>false</turnGravityOff>
   </gazebo>
 
-<!--   <gazebo reference="laser_scan_link">
-    <material>Gazebo</material>
-    <turnGravityOff>false</turnGravityOff>
-  </gazebo> -->
-
   <gazebo reference="support_wheel_front_left_link">
     <material>Gazebo/dark</material>
     <turnGravityOff>false</turnGravityOff>
@@ -81,8 +76,8 @@
       <updateRate>50</updateRate>
       <leftJoint>drive_wheel_left_joint</leftJoint>
       <rightJoint>drive_wheel_right_joint</rightJoint>
-      <wheelSeparation>0.160</wheelSeparation>
-      <wheelDiameter>0.066</wheelDiameter>
+      <wheelSeparation>0.4174</wheelSeparation>
+      <wheelDiameter>0.15</wheelDiameter>
       <wheelAcceleration>1</wheelAcceleration> 
       <wheelTorque>10</wheelTorque>
       <rosDebugLevel>na</rosDebugLevel>
@@ -99,7 +94,7 @@
       <xyzOffset>0 0 0</xyzOffset>
       <rpyOffset>0 0 0</rpyOffset>
       <updateRateHZ>20.0</updateRateHZ>
-<!--       <imu>
+      <imu>
         <noise>
           <type>gaussian</type>
           <rate>
@@ -115,7 +110,7 @@
             <bias_stddev>0.001</bias_stddev>
           </accel>
         </noise>
-      </imu> -->
+      </imu>
     </plugin>
   </gazebo>
 
@@ -129,7 +124,8 @@
         <scan>
           <horizontal>
             <samples>720</samples>
-            <resolution>1</resolution>
+            <resolution>1</resolution> 
+            <!-- resolution ???? -->
             <min_angle>0.0</min_angle>
             <max_angle>6.28319</max_angle>
           </horizontal>

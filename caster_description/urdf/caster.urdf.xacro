@@ -23,6 +23,11 @@
           <color rgba="0.3 0.3 0.3 1.0" />
         </material>
       </visual>
+      <collision>
+        <geometry>
+          <box size="0.0185 0.0185 0.1338"/>
+        </geometry>
+      </collision>
       <xacro:default_inertial mass="0.1" />
     </link>
 
@@ -37,7 +42,7 @@
   <!-- drive_wheel unit -->
   <xacro:macro name="drive_wheel" params="parent location invert *origin">
     <link name="drive_wheel_${location}_link">
-      <!-- xacro:default_inertial mass="0.1" / -->
+      <xacro:default_inertial mass="0.1" />
       <visual>
         <origin xyz="0 0 0" rpy="0 0 ${invert*M_PI}" />
         <geometry>
@@ -88,9 +93,8 @@
   <!-- base footprint -->
   <link name="base_footprint">
     <origin xyz="0 0 0" rpy="0 0 0" />
-    <!-- <xacro:default_inertial mass="0.0001" /> -->
+    <xacro:default_inertial mass="0.0001" />
   </link>
-
   <!-- base link -->
   <link name="base_link">
     <visual>
@@ -102,11 +106,21 @@
         <color rgba="0.98 1.0 0.94 1.0" />
       </material>
     </visual>
-    <xacro:default_inertial mass="10" />
+    <collision>
+      <geometry>
+        <box size="0.54 0.54 0.001"/>
+      </geometry>
+    </collision>
+<!--     <collision>
+      <geometry>
+         <cylinder length="0.037" radius="0.27"/>
+      </geometry>
+    </collision> -->
+    <xacro:default_inertial mass="20" />
   </link>
 
   <joint name="base_link_joint" type="fixed">
-    <origin xyz="0 0 0.030" rpy="0 0 0" />
+    <origin xyz="0 0 0.03" rpy="0 0 0" />
     <parent link="base_footprint" />
     <child link="base_link" />
   </joint>
@@ -121,7 +135,22 @@
   </joint>
 
   <!-- Laser link -->
-  <link name="laser_link" />
+  <link name="laser_link">
+    <collision>
+      <geometry>
+        <cylinder length="0.0315" radius="0.055"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <!-- <mass value="0.114" /> -->
+      <mass value="0.001" />
+
+      <origin xyz="0 0 0" />
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0"
+               iyy="0.001" iyz="0.0"
+               izz="0.001" />
+    </inertial>
+  </link>
   <joint name="laser_link_joint" type="fixed">
     <origin xyz="0.2301 0 0.147" rpy="0 0 0" />
     <parent link="base_link" />
