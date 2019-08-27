@@ -52,8 +52,9 @@
 
 
   <!-- The export tag contains other, unspecified, tags -->
+  <depend>gazebo_ros</depend>
+  <exec_depend>gazebo</exec_depend>
   <export>
-    <!-- Other tools can request additional information be placed here -->
-
+    <gazebo_ros gazebo_media_path="${prefix}" gazebo_model_path="${prefix}/models:${prefix}/models/caster_docker"/>
   </export>
 </package>
