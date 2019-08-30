@@ -20,14 +20,7 @@
           <box size="0.0185 0.0185 0.1338"/>
         </geometry>
       </collision>
-
-      <inertial>
-        <origin xyz="0 0 0" />
-        <mass value="0.163" />
-        <inertia ixx="0.1" ixy="0.001" ixz="0.001" 
-                 iyy="0.1" iyz="0.001" 
-                 izz="0.1" />
-      </inertial>
+      
       <inertial>
         <origin xyz="0 0 0" />
         <mass value="0.163" />
