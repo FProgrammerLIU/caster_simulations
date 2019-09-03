@@ -1,5 +1,9 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
+
 <launch> 
+
+  <include file="$(find caster_control)/launch/control.launch"/>
+
   <arg name="world_name" value="$(find caster_gazebo)/worlds/caster_home.world"/> 
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
